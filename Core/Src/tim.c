@@ -1,12 +1,12 @@
 /**
   ******************************************************************************
-  * File Name          : TIM.c
-  * Description        : This file provides code for the configuration
-  *                      of the TIM instances.
+  * @file    tim.c
+  * @brief   This file provides code for the configuration
+  *          of the TIM instances.
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -29,9 +29,17 @@ TIM_HandleTypeDef htim3;
 /* TIM3 init function */
 void MX_TIM3_Init(void)
 {
+
+  /* USER CODE BEGIN TIM3_Init 0 */
+
+  /* USER CODE END TIM3_Init 0 */
+
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
 
+  /* USER CODE BEGIN TIM3_Init 1 */
+
+  /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 107;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
@@ -56,6 +64,9 @@ void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
+  /* USER CODE BEGIN TIM3_Init 2 */
+
+  /* USER CODE END TIM3_Init 2 */
   HAL_TIM_MspPostInit(&htim3);
 
 }
@@ -129,24 +140,24 @@ void HAL_TIM_OC_MspDeInit(TIM_HandleTypeDef* tim_ocHandle)
 /* USER CODE BEGIN 1 */
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 {
-  if (htim->Instance == TIM3)
-  {
-    if (__HAL_TIM_GET_IT_SOURCE(&htim3, TIM_IT_CC1) != RESET)
+    if (htim->Instance == TIM3)
     {
-      static uint32_t count = 0;
+        if (__HAL_TIM_GET_IT_SOURCE(&htim3, TIM_IT_CC1) != RESET)
+        {
+            static uint32_t count = 0;
 
-      if (count < Pulse_Count)
-      {
-        count++;
-      }
+            if (count < Pulse_Count)
+            {
+                count++;
+            }
 
-      if (count == Pulse_Count)
-      {
-        count = 0;
-        HAL_TIM_OC_Stop_IT(&htim3, TIM_CHANNEL_1);
-      }
+            if (count == Pulse_Count)
+            {
+                count = 0;
+                HAL_TIM_OC_Stop_IT(&htim3, TIM_CHANNEL_1);
+            }
+        }
     }
-  }
 }
 /* USER CODE END 1 */
 
