@@ -89,7 +89,6 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin(PWM_OUT_GPIO_Port, PWM_OUT_Pin, GPIO_PIN_RESET);
-  // HAL_TIM_OC_Start(&htim3, TIM_CHANNEL_1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
