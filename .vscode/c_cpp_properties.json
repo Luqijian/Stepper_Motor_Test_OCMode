@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "Core/Inc/**",
+                "Drivers/STM32F7xx_HAL_Driver/Inc/**",
+                "Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/**",
+                "Drivers/CMSIS/Device/ST/STM32F7xx/Include/**",
+                "Drivers/CMSIS/Include/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "USE_HAL_DRIVER",
+                "USE_FULL_LL_DRIVER",
+                "STM32F767xx",
+                "__GNUC__"
+            ],
+            "compilerPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\9 2020-q2-update\\bin\\arm-none-eabi-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-arm"
+        }
+    ],
+    "version": 4
+}
